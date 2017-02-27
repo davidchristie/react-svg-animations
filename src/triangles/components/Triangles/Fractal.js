@@ -4,7 +4,7 @@ import Triangle from './Triangle'
 
 export default class Fractal extends React.Component {
   _children () {
-    const { depth, level, position, size } = this.props
+    const { depth, level, position, rotation, size } = this.props
     if (level >= depth) {
       return null
     }
@@ -22,6 +22,7 @@ export default class Fractal extends React.Component {
           depth={depth}
           level={level + 1}
           position={position}
+          rotation={rotation}
           size={size / 2}
         />
       )
@@ -29,10 +30,11 @@ export default class Fractal extends React.Component {
   }
 
   render () {
-    const { position, size } = this.props
+    const { position, rotation, size } = this.props
     return (
       <Triangle
         position={position}
+        rotation={rotation}
         size={size}
       >
         {this._children()}
@@ -53,5 +55,6 @@ Fractal.propTypes = {
     x: PropTypes.number.isRequired,
     y: PropTypes.number.isRequired
   }).isRequired,
+  rotation: PropTypes.number.isRequired,
   size: PropTypes.number.isRequired
 }
