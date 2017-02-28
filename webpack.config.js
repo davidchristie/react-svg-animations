@@ -6,6 +6,7 @@ module.exports = {
   },
   devtool: 'eval-source-map',
   entry: {
+    bubbles: './src/bubbles',
     triangles: './src/triangles'
   },
   module: {
@@ -21,7 +22,6 @@ module.exports = {
   },
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'docs'),
-    publicPath: '/docs/'
+    path: path.resolve(__dirname, 'docs')
   }
 }
